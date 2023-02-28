@@ -1,7 +1,7 @@
-import About from "../Components/About";
-import Steps from "../Components/Steps";
 import { VscStarFull } from "react-icons/vsc";
 import { BsPeopleFill } from "react-icons/bs";
+import About from "@/components/About";
+import Steps from "@/components/Steps";
 const Abt = () => {
   return (
     <main>
