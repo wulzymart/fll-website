@@ -3,6 +3,7 @@ import AppCTA from "@/components/AppCTA";
 import EcommerceCta from "@/components/EcommerceCta";
 import { default as ServeList } from "@/components/Services";
 import Steps from "@/components/Steps";
+import { NextSeo } from "next-seo";
 
 const Services = () => {
   return (

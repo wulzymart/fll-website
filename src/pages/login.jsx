@@ -6,7 +6,6 @@ import { app } from "@/firebase/firebase";
 import Image from "next/image";
 import Input from "@/components/input";
 import { loggedIn } from "@/hooks/routes";
-import { useUserContext } from "@/contexts/authContext";
 
 const Login = () => {
   const [email, setEmail] = useState("");

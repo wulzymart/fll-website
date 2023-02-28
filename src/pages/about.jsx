@@ -2,6 +2,7 @@ import { VscStarFull } from "react-icons/vsc";
 import { BsPeopleFill } from "react-icons/bs";
 import About from "@/components/About";
 import Steps from "@/components/Steps";
+import { NextSeo } from "next-seo";
 const Abt = () => {
   return (
     <>

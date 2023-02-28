@@ -2,7 +2,6 @@ import Layout from "@/components/Layout";
 import { UserContextProvider } from "@/contexts/authContext";
 import "@/styles/globals.css";
 import { NextSeo } from "next-seo";
-import Head from "next/head";
 
 export default function App({ Component, pageProps }) {
   return (

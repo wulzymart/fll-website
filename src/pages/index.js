@@ -6,7 +6,6 @@ import EcommerceCta from "@/components/EcommerceCta";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import Steps from "@/components/Steps";
-import Head from "next/head";
 
 const Home = ({ reviewsList }) => {
   return (
