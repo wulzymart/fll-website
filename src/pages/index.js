@@ -1,11 +1,11 @@
 import TestimonialCarousel from "@/components/Testimonials";
 import axios from "axios";
-import About from "../Components/About";
-import AppCTA from "../Components/AppCTA";
-import EcommerceCta from "../Components/EcommerceCta";
-import Hero from "../Components/Hero";
-import Services from "../Components/Services";
-import Steps from "../Components/Steps";
+import About from "@/components/About";
+import AppCTA from "@/components/AppCTA";
+import EcommerceCta from "@/components/EcommerceCta";
+import Hero from "@components/Hero";
+import Services from "@/components/Services";
+import Steps from "@/components/Steps";
 
 const Home = ({ reviewsList }) => {
   return (

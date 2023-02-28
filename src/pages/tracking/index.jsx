@@ -1,5 +1,5 @@
 import Signup from "@/components/Signup";
-import TrackingInput from "../../Components/TrackingInput";
+import TrackingInput from "@/components/TrackingInput";
 
 const Tracking = () => {
   return (
