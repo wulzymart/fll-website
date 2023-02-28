@@ -3,7 +3,7 @@ import axios from "axios";
 import About from "@/components/About";
 import AppCTA from "@/components/AppCTA";
 import EcommerceCta from "@/components/EcommerceCta";
-import Hero from "@components/Hero";
+import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import Steps from "@/components/Steps";
 
