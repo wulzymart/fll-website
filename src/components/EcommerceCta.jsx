@@ -7,8 +7,9 @@ const EcommerceCta = () => {
       <div className="bg-black opacity-90 absolute w-full h-full  z-10]"></div>
       <div className="container px-5 py-24 mx-auto flex flex-wrap items-center relative z-30">
         <div className="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
-          <h2 className="title-font font-bold font-body text-3xl text-white ">
-            A trusted logistics solution for your E commerce business
+          <h2 className="title-font font-bold font-body text-xl md:text-3xl  text-white ">
+            A trusted logistics solution for your <br />
+            E-commerce business
           </h2>
           <p className="leading-relaxed mt-4 text-white text-xl">
             You dont have to worry any more. We can handle all your shipping

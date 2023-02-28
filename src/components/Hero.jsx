@@ -12,7 +12,7 @@ const Hero = () => {
               YOU MOVE WITHOUT LIMITS.
             </h1>
             <div className="text-white  mb-20">
-              <p className="text-2xl md:text-3xl">
+              <p className="text-xl md:text-3xl">
                 When you let us do the moving
               </p>
             </div>
