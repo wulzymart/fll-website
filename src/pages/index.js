@@ -11,17 +11,6 @@ import Head from "next/head";
 const Home = ({ reviewsList }) => {
   return (
     <div>
-      {/* <Head>
-        <title>
-          First Line Logistics Nigeria LTD || Reliable Logistics Provider in
-          Nigeria
-        </title>
-        <meta
-          name="description"
-          content="Need a reliable logistics provider in Nigeria? Look no further! Our team offers a wide range of logistics services to meet your needs. Contact us today to learn more and schedule your shipment."
-        />
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-      </Head> */}
       <main>
         <Hero />
         <Services />
