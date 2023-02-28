@@ -20,19 +20,22 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-2">Contact Us</h3>
             <p className="text-gray-600 mb-2">
               Email:{" "}
-              <a class="block" href="mailto:firstlinelogistics01@gmail.com">
+              <a className="block" href="mailto:firstlinelogistics01@gmail.com">
                 firstlinelogistics01@gmail.com
+              </a>
+              <a className="mr-0" href="mailto:info@firstlinelogistics.ng">
+                info@firstlinelogistics.ng
               </a>
             </p>
             <p className="text-gray-600 mb-2">
               Phone:{" "}
-              <a class="block " href="tel:(+234)8167900003">
+              <a className="block " href="tel:(+234)8167900003">
                 (+234)8167900003
               </a>
             </p>
             <p className="text-gray-600 mb-2">
               Phone:{" "}
-              <a class="block " href="tel:(+234)8133434400">
+              <a className="block " href="tel:(+234)8133434400">
                 (+234)8133434400
               </a>
             </p>

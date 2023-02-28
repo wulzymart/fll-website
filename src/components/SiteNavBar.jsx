@@ -2,8 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import { useUserContext } from "@/contexts/authContext";
+import { getAuth, signOut } from "firebase/auth";
 
 const SiteNavBar = () => {
+  const { currentUser } = useUserContext();
+
   const [isOpen, setIsOpen] = useState(false);
   const [cArea, setCArea] = useState(false);
   const router = useRouter();
@@ -15,8 +19,8 @@ const SiteNavBar = () => {
   };
   return (
     <nav className="bg-white">
-      <div className="max-w-7xl mx-auto py-4  px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+      <div className="w-full flex justify-between items-center mx-auto py-4  px-4 sm:px-6 lg:px-8">
+        <div className="flex w-full items-center justify-between h-16">
           <div className="flex items-center ">
             <div className="flex-shrink-0 ">
               <Link href="/" className="">
@@ -28,6 +32,8 @@ const SiteNavBar = () => {
                 />
               </Link>
             </div>
+          </div>
+          <div className="flex w-full items-center justify-between">
             <div className="hidden md:block">
               <div className="ml-10 flex gap-4 items-baseline">
                 <Link
@@ -101,22 +107,25 @@ const SiteNavBar = () => {
                     >
                       Pickup Request
                     </Link>
-                    <Link
-                      href="/login"
-                      className={`px-3 py-2 rounded-md text-sm font-medium ${
-                        router.pathname === "/login" ? active : normal
-                      }  hover:text-gray-300`}
-                    >
-                      Login
-                    </Link>
-                    <Link
-                      href="/account"
-                      className={`px-3 py-2 rounded-md text-sm font-medium ${
-                        router.pathname === "/account" ? active : normal
-                      }  hover:text-gray-300`}
-                    >
-                      My Account
-                    </Link>
+                    {!currentUser ? (
+                      <Link
+                        href="/login"
+                        className={`px-3 py-2 rounded-md text-sm font-medium ${
+                          router.pathname === "/login" ? active : normal
+                        }  hover:text-gray-300`}
+                      >
+                        Login
+                      </Link>
+                    ) : (
+                      <Link
+                        href="/account"
+                        className={`px-3 py-2 rounded-md text-sm font-medium ${
+                          router.pathname === "/account" ? active : normal
+                        }  hover:text-gray-300`}
+                      >
+                        My Account
+                      </Link>
+                    )}
                   </div>
                 </div>
                 <Link
@@ -137,8 +146,34 @@ const SiteNavBar = () => {
                 </Link>
               </div>
             </div>
+            <div className="hidden md:block">
+              {!currentUser ? (
+                <Link
+                  href="/login"
+                  className={`px-3 py-2 rounded-md text-sm font-medium ${normal}  hover:text-gray-300`}
+                >
+                  Sign in
+                </Link>
+              ) : (
+                <button
+                  onClick={() => {
+                    const auth = getAuth();
+                    signOut(auth)
+                      .then(() => {
+                        // navigate("/login");
+                      })
+                      .catch((error) => {
+                        // An error happened.
+                      });
+                  }}
+                  className={` py-2 rounded-md text-sm font-medium ${normal}  hover:text-gray-300`}
+                >
+                  Sign out
+                </button>
+              )}
+            </div>
           </div>
-          <div className="-mr-2 flex md:hidden">
+          <div className="mr-2 md:hidden">
             <button
               type="button"
               className="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-800 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
@@ -186,6 +221,32 @@ const SiteNavBar = () => {
         className={`${isOpen ? "block" : "hidden"} md:hidden`}
         id="mobile-menu"
       >
+        <div className="w-full pr-8 text-right">
+          {!currentUser ? (
+            <Link
+              href="/login"
+              className={`px-3 py-2 rounded-md text-sm font-medium ${normal}  hover:text-gray-300`}
+            >
+              Sign in
+            </Link>
+          ) : (
+            <button
+              onClick={() => {
+                const auth = getAuth();
+                signOut(auth)
+                  .then(() => {
+                    // navigate("/login");
+                  })
+                  .catch((error) => {
+                    // An error happened.
+                  });
+              }}
+              className={` py-2 rounded-md text-sm font-medium ${normal}  hover:text-gray-300`}
+            >
+              Sign out
+            </button>
+          )}
+        </div>
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col">
           <Link
             href="/"
@@ -257,22 +318,25 @@ const SiteNavBar = () => {
               >
                 Pickup Request
               </Link>
-              <Link
-                href="/login"
-                className={`px-3 py-2 rounded-md text-sm font-medium ${
-                  router.pathname === "/login" ? active : normal
-                }  hover:text-gray-300`}
-              >
-                Login
-              </Link>
-              <Link
-                href="/account"
-                className={`px-3 py-2 rounded-md text-sm font-medium ${
-                  router.pathname === "/account" ? active : normal
-                }  hover:text-gray-300`}
-              >
-                My Account
-              </Link>
+              {!currentUser ? (
+                <Link
+                  href="/login"
+                  className={`px-3 py-2 rounded-md text-sm font-medium ${
+                    router.pathname === "/login" ? active : normal
+                  }  hover:text-gray-300`}
+                >
+                  Login
+                </Link>
+              ) : (
+                <Link
+                  href="/account"
+                  className={`px-3 py-2 rounded-md text-sm font-medium ${
+                    router.pathname === "/account" ? active : normal
+                  }  hover:text-gray-300`}
+                >
+                  My Account
+                </Link>
+              )}
             </div>
           </div>
           <Link

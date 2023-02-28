@@ -3,27 +3,27 @@ import { FaGooglePlay, FaApple } from "react-icons/fa";
 
 const AppCTA = () => {
   return (
-    <div class="bg-black flex  justify-center items-center gap-20 py-20">
-      <div class="  py-12 px-4 sm:px-6  lg:py-16 lg:px-8">
-        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-          <span class="block font-body">Coming Soon</span>
-          <span class="block text-white mt-5 font-body">
+    <div className="bg-black flex  justify-center items-center gap-20 py-20">
+      <div className="  py-12 px-4 sm:px-6  lg:py-16 lg:px-8">
+        <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          <span className="block font-body">Coming Soon</span>
+          <span className="block text-white mt-5 font-body">
             First Line Logistics Apps
           </span>
         </h2>
-        <div class="mt-20 flex">
-          <div class="inline-flex rounded-md shadow">
+        <div className="mt-20 flex">
+          <div className="inline-flex rounded-md shadow">
             <a
               href="#"
-              class="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-5 py-3 text-base font-medium text-white hover:bg-indigo-700"
+              className="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-5 py-3 text-base font-medium text-white hover:bg-indigo-700"
             >
               <FaGooglePlay /> <span className="ml-3"> Google Play</span>
             </a>
           </div>
-          <div class="ml-3 inline-flex rounded-md shadow">
+          <div className="ml-3 inline-flex rounded-md shadow">
             <a
               href="#"
-              class="inline-flex items-center justify-center rounded-md border border-transparent bg-white px-5 py-3 text-base font-medium text-red-600 hover:bg-indigo-50"
+              className="inline-flex items-center justify-center rounded-md border border-transparent bg-white px-5 py-3 text-base font-medium text-red-600 hover:bg-indigo-50"
             >
               <FaApple /> <span className="ml-3">Apple Store</span>
             </a>
