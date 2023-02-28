@@ -26,12 +26,12 @@ function TestimonialCarousel({ testimonials }) {
                 "{testimonial.review}"
               </p>
               <p className="text-center w-full flex justify-center text-gray-700">
-                <RatingStar
+                {/* <RatingStar
                   value={testimonial.rating}
                   edit={false}
                   size={15}
                   activeColor="#ffd700"
-                />
+                /> */}
               </p>
               <p className="text-center text-gray-600">{testimonial.name}</p>
             </div>
