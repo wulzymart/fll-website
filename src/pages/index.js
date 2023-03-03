@@ -16,7 +16,11 @@ const Home = ({ reviewsList }) => {
         <About />
         <Steps />
         <EcommerceCta />
-        {reviewsList && <TestimonialCarousel testimonials={reviewsList} />}
+        {reviewsList.length ? (
+          <TestimonialCarousel testimonials={reviewsList} />
+        ) : (
+          ""
+        )}
         <AppCTA />
       </main>
     </div>
