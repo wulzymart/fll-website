@@ -27,7 +27,7 @@ const Services = () => {
           </h1>
           <div className="w-full flex flex-wrap lg:flex-wrap justify-center  mt-15 ">
             <Link
-              href="/request-pickup"
+              href="/pickup-request"
               className="text-center cursor-pointer lg:text-left relative overflow-hidden border border-gray-300 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 py-12 px-8 bg-white hover:bg-blue-900 hover:text-white text-gray-800"
             >
               <span className="inline-flex mb-6 text-5xl">
@@ -120,7 +120,7 @@ const Services = () => {
             </Link>
 
             <Link
-              href="/get-a-quote"
+              href="/quotation"
               className="text-center cursur-pointer lg:text-left relative overflow-hidden border border-gray-300 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 py-12 px-8 bg-white hover:bg-blue-900 hover:text-white text-gray-800"
             >
               <span className="inline-flex mb-6 text-5xl">
