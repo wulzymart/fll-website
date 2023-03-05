@@ -13,15 +13,7 @@ const Login = () => {
 
   const handleSubmit = () => {
     const auth = getAuth(app);
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        setCurrentUser(userCredential.user.uid);
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        alert(errorCode + " " + errorMessage);
-      });
+    signInWithEmailAndPassword(auth, email, password);
     setEmail("");
     setPassword("");
   };

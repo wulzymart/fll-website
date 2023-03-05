@@ -4,7 +4,6 @@ import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import React, { createContext, useContext, useEffect, useState } from "react";
 
 import { app } from "@/firebase/firebase";
-import axios from "axios";
 
 const UserContext = createContext();
 

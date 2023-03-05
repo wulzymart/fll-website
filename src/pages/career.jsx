@@ -1,6 +1,5 @@
 import Header1 from "@/components/Header1";
 import { getJobs } from "@/hooks/jobs";
-import axios from "axios";
 import React, { useEffect } from "react";
 
 const career = ({ jobs }) => {

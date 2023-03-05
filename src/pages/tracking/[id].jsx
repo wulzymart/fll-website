@@ -1,6 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable array-callback-return */
-
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -21,17 +18,22 @@ import {
 } from "firebase/firestore";
 import Textarea from "@/components/textarea";
 
-import { openModal } from "@/modalcontrol";
+import { closeModal, openModal } from "@/modalcontrol";
 import Modal from "@/components/Modal";
 
 import { idGenerator } from "@/AppBrain";
 import NotFound from "@/components/NotFound";
+import Input from "@/components/input";
+import CustomButton from "@/components/button";
 
 const OrderPage = () => {
   const [rating, setRating] = useState("");
   const [review, setReview] = useState("");
   const [identity, setIdentity] = useState("");
   const [reviews, setReviews] = useState([]);
+  const [subReceiverName, setSubReceiverName] = useState("");
+  const [subReceiverPhone, setSubReceiverPhone] = useState("");
+
   const rate = (rating) => {
     const stars = document.querySelectorAll(".star");
     stars.forEach((star, index) => {
@@ -154,84 +156,9 @@ const OrderPage = () => {
                 <span>{order.deliveryService}</span>
               </p>
             </div>
-            <div className="min-w-52 flex flex-col gap-4">
-              {!order.paid && (
-                <p className="flex flex-col  gap-2 mb-2">
-                  <span className="font-bold">Price:</span>
-                  <span>{order.total} NGN</span>
-                </p>
-              )}
-              <p className="flex flex-col  gap-2 mb-2">
-                <span className="font-bold">Payment Status:</span>
-                <span>{order.paid ? "Paid" : "Not Paid"}</span>
-              </p>
-            </div>
           </div>
 
           <div className="flex flex-col md:flex-row  gap-4 ">
-            <div className="flex flex-col shadow-2xl   md:w-1/3 bg-slate-100 border border-solid border-slate-300 p-8 rounded-lg ">
-              {customer ? (
-                <div className="mb-10 pb-8 border-b border-b-black">
-                  <p className="text-xl font-semibold mb-4">
-                    Sender's Information
-                  </p>
-                  <p className=" flex gap-3 mb-2">
-                    <span>Name:</span>
-                    <span>{customer.firstName + " " + customer.lastName}</span>
-                  </p>
-                  <p className=" flex gap-3 mb-2">
-                    <span>Business Name:</span>
-                    <span>{customer.businessName}</span>
-                  </p>
-
-                  <p className=" flex gap-3 mb-2">
-                    <span>Phone:</span>
-                    <span>{customer.phoneNumber}</span>
-                  </p>
-                  <p className=" flex gap-3 mb-2">
-                    <span>Email:</span>
-                    <span>{customer.email}</span>
-                  </p>
-                  <p className=" flex gap-3 mb-2">
-                    <span>Address:</span>
-                    <span>
-                      {customer.address.streetAddress +
-                        " " +
-                        customer.address.state}
-                    </span>
-                  </p>
-                </div>
-              ) : (
-                "loading"
-              )}
-              <div>
-                <p className="text-xl font-semibold mb-4">
-                  Receiver's Information
-                </p>
-                <p className=" flex gap-3 mb-2">
-                  <span>Name:</span>
-                  <span>{Receiver.firstName + " " + Receiver.lastName}</span>
-                </p>
-                <p className=" flex gap-3 mb-2">
-                  <span>Business Name:</span>
-                  <span>{Receiver.businessName}</span>
-                </p>
-
-                <p className=" flex gap-3 mb-2">
-                  <span>Phone Number:</span>
-                  <span>{Receiver.phoneNumber}</span>
-                </p>
-
-                <p className=" flex gap-3 mb-2">
-                  <span>Address:</span>
-                  <span>
-                    {Receiver.address.streetAddress +
-                      " " +
-                      Receiver.address.state}
-                  </span>
-                </p>
-              </div>
-            </div>
             <div className=" h-full">
               <div className=" bg-blue-500 shadow-2xl text-white w-full p-8 rounded-lg mb-4">
                 <p className="text-xl font-semibold mb-8">Item Details</p>
@@ -263,53 +190,6 @@ const OrderPage = () => {
                 </p>
               </div>
 
-              {!order.paid && (
-                <div className=" bg-blue-500 shadow-2xl text-white w-full p-8 rounded-lg mb-4">
-                  <p className="text-xl font-semibold mb-8">Price Details</p>
-                  <div className="flex flex-wrap gap-x-8 gap-y-2 mb-2">
-                    <p className="w-42">
-                      <span>Freight Price: </span>
-                      <span>{order.freightPrice} NGN</span>
-                    </p>
-                    <p>
-                      <span className="mr-4">Additional Charges:</span>
-                      {order.additionalCharges ? (
-                        Object.keys(order.additionalCharges).map((key) => (
-                          <span key={key}>
-                            <span>{key}: </span>
-                            <span>{order.additionalCharges[key]} NGN</span>
-                          </span>
-                        ))
-                      ) : (
-                        <span>None</span>
-                      )}
-                    </p>
-                    <p className="w-44">
-                      <span>Insurance: </span>
-                      <span>{order.insurance} NGN</span>
-                    </p>
-                    <p className="w-42">
-                      <span>VAT: </span>
-                      <span>{order.VAT} NGN </span>
-                    </p>
-                    <p className="w-42">
-                      <span>Total: </span>
-                      <span>{order.total} NGN</span>
-                    </p>
-                  </div>
-                  <p>Payment Information</p>
-                  <div className="flex flex-wrap gap-4">
-                    <p className="w-42">
-                      <span>Payment Status: </span>
-                      <span></span>
-                    </p>
-                    <p className="w-42">
-                      <span>Payment Reciept: </span>
-                      <span>{order.receiptInfo}</span>
-                    </p>
-                  </div>
-                </div>
-              )}
               <div className=" bg-blue-500 shadow-2xl text-white w-full p-8 rounded-lg mb-4">
                 <p className="text-xl font-semibold mb-8">
                   Tracking and Delivery
@@ -334,6 +214,100 @@ const OrderPage = () => {
                   ))}
                 </div>
               </div>
+              {order.subReceiverName && (
+                <div className=" bg-blue-500 shadow-2xl text-white w-full p-8 rounded-lg mb-4">
+                  <p className="text-lg font-medium">
+                    You have assigned {order.subReceiverName} with phone number{" "}
+                    {order.subReceiverPhone} to picked up the order. You will
+                    get a confirmatory call from us before delivery
+                  </p>
+                </div>
+              )}
+              {order.receivedByName ? (
+                <div className=" bg-blue-500 shadow-2xl text-white w-full p-8 rounded-lg mb-4">
+                  <p className="text-lg font-medium">
+                    {order.receivedByName} with phone number{" "}
+                    {order.receivedByPhone} has picked up the order
+                  </p>
+                </div>
+              ) : (
+                ""
+              )}
+              {!order.subReceiverName && (
+                <div className=" bg-blue-500 shadow-2xl text-white w-full p-8 rounded-lg mb-4">
+                  <p className="text-xl font-semibold">Substitute Receiver</p>
+                  <p className=" mb-8">
+                    If you wont be available for pick up, please kindly provide
+                    the name and the phone number of the person to pickup
+                    onbehalf your.
+                  </p>
+                  <div className="flex flex-col md:flex-row gap-x-8 gap-y-4 justify-around">
+                    <div className="flex gap-2 items-center">
+                      <p className="font-bold mb-4">Name:</p>
+                      <Input
+                        value={subReceiverName}
+                        name={subReceiverName}
+                        handleChange={(e) => {
+                          setSubReceiverName(e.target.value);
+                          console.log(e.target.value);
+                        }}
+                      />
+                    </div>
+                    <div className="flex gap-2 items-center">
+                      <p className="font-bold mb-4">Phone:</p>
+                      <Input
+                        value={subReceiverPhone}
+                        name={subReceiverPhone}
+                        handleChange={(e) => {
+                          setSubReceiverPhone(e.target.value);
+                        }}
+                      />
+                    </div>
+                  </div>
+                  <Modal id="sub-receiver" title="Confirm Substitute Receiver">
+                    <div className="text-gray-700 w-[300px] mx-auto md:w-[400px]">
+                      <p className="text-center">
+                        You are assigning {subReceiverName} with phone number{" "}
+                        {subReceiverPhone} to pick up on your behalf. The
+                        receiver will be contacted to verify this action.
+                      </p>
+                      <p className="mb-6 text-center">
+                        Note that valid means of identification will be required
+                        for pickup
+                      </p>
+                      <CustomButton
+                        handleClick={() => {
+                          setDoc(
+                            doc(db, "orders", id),
+                            { subReceiverName, subReceiverPhone },
+                            { merge: true }
+                          ).then(() => {
+                            setSubReceiverName("");
+                            setSubReceiverPhone("");
+                            closeModal("sub-receiver");
+                          });
+                        }}
+                      >
+                        Proceed
+                      </CustomButton>
+                    </div>
+                  </Modal>
+                  <div className="flex justify-end mt-4">
+                    <button
+                      onClick={() => {
+                        if (!subReceiverName || !subReceiverPhone) {
+                          alert("please fill all required fields");
+                          return;
+                        }
+                        openModal("sub-receiver");
+                      }}
+                      className="py-2 px-4 bg-red-500 rounded-lg"
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </div>
+              )}
               {order.review && (
                 <div className=" bg-blue-500 shadow-2xl text-white w-full p-8 rounded-lg mb-4">
                   <p className="text-xl font-semibold mb-8">Reviews</p>
@@ -348,6 +322,7 @@ const OrderPage = () => {
                   </div>
                 </div>
               )}
+
               {!order.review || order.review?.count < 2 ? (
                 <div className=" bg-blue-500 shadow-2xl text-white w-full p-8 rounded-lg mb-4">
                   <p className="text-xl font-semibold">Give us a feedback</p>

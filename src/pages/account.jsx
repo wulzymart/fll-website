@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import {
   collection,
   doc,
@@ -91,9 +90,9 @@ const CustomerPage = ({ currentUser }) => {
       field: "id",
       headerName: "Tracking Id",
 
-      width: 150,
+      width: 200,
       renderCell: (param) => {
-        return <Link to={`/tracking/${param.value}`}>{param.value}</Link>;
+        return <Link href={`/tracking/${param.value}`}>{param.value}</Link>;
       },
     },
     {
@@ -127,12 +126,6 @@ const CustomerPage = ({ currentUser }) => {
     {
       field: "deliveryStatus",
       headerName: "Delivery Status",
-
-      width: 150,
-    },
-    {
-      field: "paymentStatus",
-      headerName: "Payment Status",
 
       width: 150,
     },
@@ -216,7 +209,9 @@ const CustomerPage = ({ currentUser }) => {
               Change Password
             </CustomButton>
             {/* <CustomButton>Top up</CustomButton> */}
-            <CustomButton>Order Pickup</CustomButton>
+            <CustomButton handleClick={() => router.push("/pickup-request")}>
+              Order Pickup
+            </CustomButton>
           </div>
           <Modal title="Change Password" id="change-password">
             <div className=" flex gap-4 mb-8">
