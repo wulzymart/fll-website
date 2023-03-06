@@ -20,9 +20,7 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-2">Contact Us</h3>
             <p className="text-gray-600 mb-2">
               Email:{" "}
-              <a className="block" href="mailto:firstlinelogistics01@gmail.com">
-                firstlinelogistics01@gmail.com
-              </a>
+             
               <a
                 className="mr-0"
                 href="mailto:customerservice@firstlinelogistics.ng"
