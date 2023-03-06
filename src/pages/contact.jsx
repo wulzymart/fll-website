@@ -35,9 +35,6 @@ const Contact = ({ statesWithStations }) => {
           </div>
           <p className="mb-5 font-medium">
             Email:{" "}
-            <a className="mr-0" href="mailto:firstlinelogistics01@gmail.com">
-              firstlinelogistics01@gmail.com
-            </a>
             <a
               className="mr-0"
               href="mailto:customerservice@firstlinelogistics.ng"
