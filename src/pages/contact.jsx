@@ -55,7 +55,7 @@ const Contact = ({ statesWithStations }) => {
               {Object.keys(state.stations).map(
                 (station, index) =>
                   station !== "Head Office" && (
-                    <div className="w-full md:w-1/2 px-2">
+                    <div key={index} className="w-full md:w-1/2 px-2">
                       <p className="font-medium text-primary text-lg mb-3">
                         {state.stations[station].name}
                       </p>
@@ -88,7 +88,7 @@ export default Contact;
 
 export async function getStaticProps() {
   let states;
-  await axios.get(`https://ls.webcouture.com.ng/states`).then((data) => {
+  await axios.get(`https://kind-waders-hare.cyclic.app/states`).then((data) => {
     states = data.data;
   });
   const statesWithStations = [];

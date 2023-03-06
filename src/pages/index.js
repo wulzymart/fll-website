@@ -30,9 +30,11 @@ const Home = ({ reviewsList }) => {
 export default Home;
 export async function getStaticProps() {
   let reviews;
-  await axios.get(`https://ls.webcouture.com.ng/reviews`).then((data) => {
-    reviews = data.data;
-  });
+  await axios
+    .get(`https://kind-waders-hare.cyclic.app/reviews`)
+    .then((data) => {
+      reviews = data.data;
+    });
   const reviewsList = [];
   Object.keys(reviews).map((review) => {
     reviewsList.push(reviews[review]);
