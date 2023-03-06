@@ -38,8 +38,11 @@ const Contact = ({ statesWithStations }) => {
             <a className="mr-0" href="mailto:firstlinelogistics01@gmail.com">
               firstlinelogistics01@gmail.com
             </a>
-            <a className="mr-0" href="mailto:info@firstlinelogistics.ng">
-              info@firstlinelogistics.ng
+            <a
+              className="mr-0"
+              href="mailto:customerservice@firstlinelogistics.ng"
+            >
+              customerservice@firstlinelogistics.ng
             </a>
           </p>
         </div>
