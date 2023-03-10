@@ -158,8 +158,8 @@ const OrderPage = () => {
             </div>
           </div>
 
-          <div className="flex flex-col md:flex-row  gap-4 ">
-            <div className=" h-full">
+          <div className="">
+            <div className="w-full h-full">
               <div className=" bg-blue-500 shadow-2xl text-white w-full p-8 rounded-lg mb-4">
                 <p className="text-xl font-semibold mb-8">Item Details</p>
                 <div className="flex flex-wrap gap-x-16 gap-y-2 mb-2">
