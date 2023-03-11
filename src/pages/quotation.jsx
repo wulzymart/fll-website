@@ -5,6 +5,7 @@ import { db } from "@/firebase/firebase";
 import { openModal } from "@/modalcontrol";
 import { doc, setDoc } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
+import emailjs from "@emailjs/browser";
 const states = [
   "Abia",
   "Adamawa",
@@ -84,23 +85,40 @@ const Quotation = () => {
     ) {
       alert("Please fill required inputs");
     } else {
-      const id = idGenerator(5);
-      const quoteRef = doc(db, "quotations", id);
-      setDoc(quoteRef, formValues).then(() => {
-        setFormValues({
-          fullName: "",
-          businessName: "",
-          phoneNumber: "",
-          email: "",
-          originState: "",
-          destinationState: "",
-          quantity: "",
-          value: "",
-          weight: "",
-          description: "",
-        });
-        openModal("quotation-success");
-      });
+      const templateParams = {
+        ...formValues,
+      };
+      emailjs
+        .send(
+          "service_p5fagzc",
+          "template_uxtyghq",
+          templateParams,
+          "58HwwGJGNzRfj7V2N"
+        )
+        .then(
+          (response) => {
+            console.log("SUCCESS!", response.status, response.text);
+            setFormValues({
+              fullName: "",
+              businessName: "",
+              phoneNumber: "",
+              email: "",
+              originState: "",
+              destinationState: "",
+              quantity: "",
+              value: "",
+              weight: "",
+              description: "",
+            });
+            openModal("quotation-success");
+          },
+          (err) => {
+            console.log("FAILED...", err);
+            alert(
+              "Mail not sent please check your network and try again or contact us via email or phone call. Thank you"
+            );
+          }
+        );
     }
   };
   return (
