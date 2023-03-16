@@ -430,11 +430,13 @@ export async function getServerSideProps({ req, res }) {
   );
   let states;
   let statesList;
-  await axios.get(`https://kind-waders-hare.cyclic.app/states`).then((data) => {
-    states = data.data;
+  await axios
+    .get(`https://server.firstlinelogistics.ng/states`)
+    .then((data) => {
+      states = data.data;
 
-    statesList = Object.keys(data.data).map((key) => key);
-  });
+      statesList = Object.keys(data.data).map((key) => key);
+    });
 
   return {
     props: {

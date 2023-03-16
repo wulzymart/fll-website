@@ -31,7 +31,7 @@ export default Home;
 export async function getStaticProps() {
   let reviews;
   await axios
-    .get(`https://kind-waders-hare.cyclic.app/reviews`)
+    .get(`https://server.firstlinelogistics.ng/reviews`)
     .then((data) => {
       reviews = data.data;
     });

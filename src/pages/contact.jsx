@@ -88,9 +88,11 @@ export default Contact;
 
 export async function getStaticProps() {
   let states;
-  await axios.get(`https://kind-waders-hare.cyclic.app/states`).then((data) => {
-    states = data.data;
-  });
+  await axios
+    .get(`https://server.firstlinelogistics.ng/states`)
+    .then((data) => {
+      states = data.data;
+    });
   const statesWithStations = [];
   Object.keys(states).map((state) => {
     if (Object.keys(states[state]?.stations).length)

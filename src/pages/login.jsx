@@ -6,6 +6,7 @@ import { app } from "@/firebase/firebase";
 import Image from "next/image";
 import Input from "@/components/input";
 import { loggedIn } from "@/hooks/routes";
+import Link from "next/link";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -57,6 +58,12 @@ const Login = () => {
         >
           Submit
         </button>
+        <Link
+          href={"/forgot-password"}
+          className="text-blue-600 hover:text-red-500 text-end"
+        >
+          Forgot Your Password?
+        </Link>
       </div>
     </div>
   );

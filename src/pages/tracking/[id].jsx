@@ -249,7 +249,7 @@ const OrderPage = () => {
                         name={subReceiverName}
                         handleChange={(e) => {
                           setSubReceiverName(e.target.value);
-                          console.log(e.target.value);
+  
                         }}
                       />
                     </div>
