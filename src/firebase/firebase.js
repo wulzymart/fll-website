@@ -2,12 +2,13 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAEiXebPZuMHBmC1bA0_B5BqfnsN6aiAkk",
-  authDomain: "logistic-suite.firebaseapp.com",
-  projectId: "logistic-suite",
-  storageBucket: "logistic-suite.appspot.com",
-  messagingSenderId: "120266016160",
-  appId: "1:120266016160:web:8ed82486f53135b13690c5",
+  apiKey: "AIzaSyDkBvDZdPFpLuTszmX1dSPaEFVE5ugKTi8",
+  authDomain: "firstlinelogistics-8b0d0.firebaseapp.com",
+  projectId: "firstlinelogistics-8b0d0",
+  storageBucket: "firstlinelogistics-8b0d0.appspot.com",
+  messagingSenderId: "461891891068",
+  appId: "1:461891891068:web:a0f7fb7e9125544d487ef9",
+  measurementId: "G-LNBWEES8XE"
 };
 
 // Initialize Firebase
